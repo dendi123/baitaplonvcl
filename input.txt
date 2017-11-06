@@ -1,0 +1,108 @@
+public class bai2 {
+    static class PhanSo{
+        private int tuSo, mauSo;
+
+        public PhanSo(int tuSo, int mauSo){
+            this.tuSo = tuSo;
+            this.mauSo = mauSo;
+        }
+        public PhanSo(){
+            int tuSo = 1;
+            int mauSo = 1;
+        }
+
+        public int getTuSo(){
+            return tuSo;
+        }
+
+        public void setTuSo(int n){
+            this.tuSo = n;
+        }
+
+        public int getMauSo(){
+            return mauSo;
+        }
+
+        public void setMauso(int m) {
+            this.mauSo = m;
+        }
+
+        public boolean equals(PhanSo p)
+        {
+            if (this.tuSo * p.mauSo == p.tuSo * this.mauSo) return true;
+            else return false;
+        }
+    }
+
+    public static int gcd(int a, int b){
+        if(b == 0){
+            return a;
+        }
+        else{
+            return gcd(b,a%b);
+        }
+    }
+
+    public static PhanSo toiGianPS (PhanSo a){
+        PhanSo newPhanSo = new PhanSo();
+        newPhanSo.tuSo = a.tuSo/gcd(Math.abs(a.tuSo),Math.abs(a.mauSo));
+        newPhanSo.mauSo = a.mauSo/gcd(Math.abs(a.tuSo),Math.abs(a.mauSo));
+        return newPhanSo;
+    }
+
+    public static PhanSo congPS(PhanSo a, PhanSo b){
+        PhanSo result = new PhanSo();
+        result.tuSo = a.tuSo * b.mauSo + a.mauSo * b.tuSo;
+        result.mauSo = a.mauSo * b.mauSo;
+        if(result.tuSo != 0){
+            toiGianPS(result);
+        }
+        return result;
+    }
+
+    public static PhanSo truPS(PhanSo a, PhanSo b){
+        PhanSo result = new PhanSo();
+        result.tuSo = a.tuSo * b.mauSo - a.mauSo * b.tuSo;
+        result.mauSo = a.mauSo * b.tuSo;
+        if(result.tuSo != 0){
+            toiGianPS(result);
+        }
+        return result;
+    }
+
+    public static PhanSo nhanPS(PhanSo a, PhanSo b){
+        PhanSo result = new PhanSo();
+        result.tuSo = a.tuSo * b.tuSo;
+        result.mauSo = a.mauSo * b.mauSo;
+        if(result.tuSo != 0){
+            toiGianPS(result);
+        }
+        return result;
+    }
+
+    public static PhanSo chiaPS(PhanSo a, PhanSo b){
+        PhanSo result = new PhanSo();
+        result.tuSo = a.tuSo * b.mauSo;
+        result.mauSo = a.mauSo * b.tuSo;
+        if(result.tuSo != 0){
+            toiGianPS(result);
+        }
+        return result;
+    }
+
+    public static void main(String[] args){
+        PhanSo p1 = new PhanSo(5,8);
+        PhanSo p2 = new PhanSo(10,16);
+//        p1.setTuSo(5);
+//        p1.setMauso(8);
+//        p2.setTuSo(1);
+//        p2.setMauso(3);
+        System.out.println(congPS(p1,p2).tuSo + "/" + congPS(p1,p2).mauSo);
+        if(p1.equals(p2)){
+            System.out.println("Hai phân số bằng nhau");
+        }
+        else{
+            System.out.println("Hai phân không số bằng nhau");
+        }
+    }
+}

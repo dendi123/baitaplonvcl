@@ -6,19 +6,22 @@ public class MainClass {
 
     public static void main(String[] args) throws Exception,IOException
     {
-        String fileName = "D:\\baitaplonvcl\\src\\test\\Circle.java";
+        String fileName = "C:\\Users\\Mangosteen\\Documents\\GitHub\\baitaplonvcl\\src\\test\\Circle.java";
         ArrayList className = getClassName(readFile(fileName));
         ArrayList b = getMethodName(readFile(fileName));
         ArrayList c = getAttributeName(readFile(fileName));
         for(int i = 0; i < className.size(); i++){
             System.out.println(className.get(i));
         }
+        System.out.println("Method: " + "\n");
         for(int i = 0; i < b.size(); i++){
             System.out.println(b.get(i));
         }
+        System.out.println("\n");
+        System.out.println("Attribute: " + "\n");
         for(int i = 0; i < c.size(); i++){
             System.out.println(c.get(i));
-        }
+       }
     }
 
     public static String readFile(String fileName) throws Exception,IOException {
@@ -55,21 +58,28 @@ public class MainClass {
         return arrayClassName;
     }
 
-    public static ArrayList getMethodName(String method) throws Exception{
+    public static ArrayList getMethodName(String method) throws Exception {
         String[] methodName = stringToArray(method);
         int countOpen = 0;
         ArrayList arrayMethodName = new ArrayList();
-        for(int i = 0; i < methodName.length; i++){
-            if(methodName[i].contains("public") || methodName[i].contains("private") || methodName[i].contains("protected")){
-                if(methodName[i + 1].contains("double") || methodName[i + 1].contains("int") || methodName[i + 1].contains("String") || methodName[i + 1].contains("void")){
-                    if(methodName[i + 2].contains("(")) {
-                        for (int j = 0; j < methodName.length; j++) {
-                            if (methodName[j] == "(") {
-                                for (int k = j; k < methodName.length; k++) {
-                                    if (methodName[k] == ")") {
-                                        arrayMethodName.add("Method: " + methodName[k + j] + " \n");
-                                    }
+        for (int i = 0; i < methodName.length; i++) {
+            if (methodName[i].contains("public") || methodName[i].contains("private") || methodName[i].contains("protected")) {
+                if (methodName[i + 1].contains("double") || methodName[i + 1].contains("int") || methodName[i + 1].contains("String") || methodName[i + 1].contains("void")) {
+                    if (methodName[i + 2].contains("(")) {
+                        if (methodName[i + 3].contains("int") || methodName[i + 3].contains("String") || methodName[i + 3].contains("float") || methodName[i + 3].contains("double")) {
+
+                            arrayMethodName.add("" + methodName[i + 2] + " " + methodName[i + 3] + " ");
+
+
+                        } else {
+                            if (methodName[i + 4].contains(",")) {
+                                if (methodName[i + 5].contains("int") || methodName[i + 5].contains("String") || methodName[i + 5].contains("float") || methodName[i + 5].contains("double")) {
+                                    arrayMethodName.add("" +methodName[i+2]+" "+methodName[i+3]+" "+ methodName[i + 4] +" " + methodName[i + 5] +" "+methodName[i+6]);
+
                                 }
+                            }
+                            else {
+                                arrayMethodName.add("" + methodName[i + 2] + methodName[i + 3]);
                             }
                         }
                     }
@@ -79,6 +89,7 @@ public class MainClass {
         return arrayMethodName;
     }
 
+
     public static ArrayList getAttributeName(String attribute) throws Exception{
         String[] attributeName = stringToArray(attribute);
         ArrayList arrayAttributeName = new ArrayList();
@@ -86,12 +97,12 @@ public class MainClass {
             if((attributeName[i].contains("public") || attributeName[i].contains("private") || attributeName[i].contains("protected")) && !attributeName[i + 1].contains("class")){
                 if(attributeName[i + 1].contains("final") || attributeName[i + 1].contains("static") ){
                     if(!attributeName[i + 3].contains("(")){
-                        arrayAttributeName.add("Attribute: " + attributeName[i + 3] + " \n");
+                        arrayAttributeName.add("" + attributeName[i + 3]);
                     }
                 }
                 else{
                     if(!attributeName[i + 2].contains("(")){
-                        arrayAttributeName.add("Attribute: " + attributeName[i + 2] + " \n");
+                        arrayAttributeName.add("" + attributeName[i + 2]);
                     }
                 }
             }

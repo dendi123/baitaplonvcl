@@ -55,8 +55,23 @@ public class Circle extends Shape {
         centralPointY += addY;
     }
 
+    public void testing2(double test1, double test2, double test3 , double test4)
+    {
+        centralPointX += test1;
+        centralPointY += test2;
+        test3+=centralPointX+centralPointY;
+    }
+
     @Override
     public String toString() {
         return super.toString();
     }
+
+    public void testing(double test1 , double test2 , double test3)
+    {
+        centralPointX += test1;
+        centralPointY += test2;
+        test3+=centralPointX+centralPointY;
+    }
+
 }

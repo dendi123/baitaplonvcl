@@ -2,7 +2,7 @@
  * Created by VAIO on 19-Oct-17.
  */
 public class Square extends Rectangle {
-    public Square() {
+    public Square(){
 
     }
 

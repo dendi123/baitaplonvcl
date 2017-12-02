@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="212b9cf6-6937-4d2b-9308-e5588172ed90" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/UML.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UML.java" afterPath="$PROJECT_DIR$/src/UML.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +30,8 @@
       <file leaf-file-name="UML.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UML.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="45" />
+            <state relative-caret-position="167">
+              <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,6 +59,14 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>W_max</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>box_width</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -302,7 +310,7 @@
       <workItem from="1511491291331" duration="5958000" />
       <workItem from="1512037864028" duration="10347000" />
       <workItem from="1512099408641" duration="1322000" />
-      <workItem from="1512207278346" duration="1683000" />
+      <workItem from="1512207278346" duration="4001000" />
     </task>
     <task id="LOCAL-00001" summary="fix getAttributes, remove multiple-line comments">
       <created>1512046201183</created>
@@ -311,11 +319,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512046201183</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add basic UML">
+      <created>1512209064479</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1512209064479</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31910000" />
+    <option name="totallyTimeSpent" value="34228000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -386,7 +401,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix getAttributes, remove multiple-line comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix getAttributes, remove multiple-line comments" />
+    <MESSAGE value="add basic UML" />
+    <option name="LAST_COMMIT_MESSAGE" value="add basic UML" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -649,8 +665,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UML.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="45" />
+        <state relative-caret-position="167">
+          <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

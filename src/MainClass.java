@@ -4,55 +4,42 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
+import java.util.Arrays;
 
-public class MainClass extends SimpleFileVisitor<Path>
-{
-
-    public static void main(String[] args) throws Exception, IOException
-    {
-//        String fileName = "C:\\Users\\Mangosteen\\Documents\\GitHub\\baitaplonvcl\\src\\test\\Circle.java";
-//        ArrayList className = getClassName(readFile(fileName));
-//        ArrayList c = getAttributeName(readFile(fileName));
-//       { for(int i = 0; i < className.size(); i++){
-//            System.out.println(className.get(i));
-//        }
-//            System.out.println("Method: " + "\n");
-//            for(int i = 0; i < b.size(); i++){
-//                System.out.println(b.get(i));
-//            }
-//            System.out.println("\n");
-//            System.out.println("Attribute: " + "\n");
-//            for(int i = 0; i < c.size(); i++)
-//            System.out.println(c.get(i));
-//       }
-//        Files.walkFileTree(Paths.get("C:\\Users\\Mangosteen\\Documents\\GitHub\\baitaplonvcl\\src\\test"), new MainClass());
+public class MainClass extends SimpleFileVisitor<Path> {
+    public static void main(String[] args) throws Exception, IOException {
         File folder = new File("D:\\baitaplonvcl\\src\\test");
         File[] listOfFiles = folder.listFiles();
         ArrayList filesList = new ArrayList();
-
         for(File file : listOfFiles)
         {
             if(file.isFile())
             {
                 System.out.println(file.getName() + "\n");
-                for(int i=0;i<listOfFiles.length;i++)
+                for(int i = 0;i < listOfFiles.length;i++)
                 {
                     ArrayList b = getClassName(readFile(file.getPath()));
-                    for(int j = 0; j < b.size(); j++){
-                        System.out.print(b.get(j));
+                    Object[] classList = b.toArray();
+                    String[] classString =  Arrays.copyOf(classList,classList.length,String[].class);
+                    for(int j = 0; j < classString.length; j++){
+                        System.out.print(classString[j]);
                     }
                     System.out.print("\n");
                     System.out.print("Attributes:" + "\n");
                     ArrayList c = getAttributeName(readFile(file.getPath()));
-                    for(int j = 0; j < c.size(); j++){
-                        System.out.print(c.get(j) + " ");
+                    Object[] attributeList = c.toArray();
+                    String[] attributeString =  Arrays.copyOf(attributeList,attributeList.length,String[].class);
+                    for(int j = 0; j < attributeString.length; j++){
+                        System.out.print(attributeString[j]);
                     }
                     System.out.print("\n");
-                    System.out.print("Methods: " +"\n");
+                    System.out.print("Methods:" + "\n");
                     ArrayList a = testString(readFile(file.getPath()));
-                    for(int j=0 ; j < a.size() ; j++)
+                    Object[] methodList = a.toArray();
+                    String[] methodString =  Arrays.copyOf(methodList,methodList.length,String[].class);
+                    for(int j = 0 ; j < methodString.length; j++)
                     {
-                        System.out.print(a.get(j));
+                        System.out.print(methodString[j]);
                     }
                     break;
                 }
@@ -167,4 +154,5 @@ public class MainClass extends SimpleFileVisitor<Path>
         return arrayAttributeName;
     }
 }
+
 

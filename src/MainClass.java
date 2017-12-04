@@ -7,45 +7,8 @@ import java.nio.file.SimpleFileVisitor;
 import java.util.Arrays;
 
 public class MainClass extends SimpleFileVisitor<Path> {
-    public static void main(String[] args) throws Exception, IOException {
-        File folder = new File("D:\\baitaplonvcl\\src\\test");
-        File[] listOfFiles = folder.listFiles();
-        ArrayList filesList = new ArrayList();
-        for(File file : listOfFiles)
-        {
-            if(file.isFile())
-            {
-                System.out.println(file.getName() + "\n");
-                for(int i = 0;i < listOfFiles.length;i++)
-                {
-                    ArrayList b = getClassName(readFile(file.getPath()));
-                    Object[] classList = b.toArray();
-                    String[] classString =  Arrays.copyOf(classList,classList.length,String[].class);
-                    for(int j = 0; j < classString.length; j++){
-                        System.out.print(classString[j]);
-                    }
-                    System.out.print("\n");
-                    System.out.print("Attributes:" + "\n");
-                    ArrayList c = getAttributeName(readFile(file.getPath()));
-                    Object[] attributeList = c.toArray();
-                    String[] attributeString =  Arrays.copyOf(attributeList,attributeList.length,String[].class);
-                    for(int j = 0; j < attributeString.length; j++){
-                        System.out.print(attributeString[j]);
-                    }
-                    System.out.print("\n");
-                    System.out.print("Methods:" + "\n");
-                    ArrayList a = testString(readFile(file.getPath()));
-                    Object[] methodList = a.toArray();
-                    String[] methodString =  Arrays.copyOf(methodList,methodList.length,String[].class);
-                    for(int j = 0 ; j < methodString.length; j++)
-                    {
-                        System.out.print(methodString[j]);
-                    }
-                    break;
-                }
-            }
-            System.out.println("--------------" + "\n");
-        }
+    public static void main(String[] args) throws Exception{
+        arrayListToString("D:\\baitaplonvcl\\src\\test");
     }
 
 
@@ -94,7 +57,7 @@ public class MainClass extends SimpleFileVisitor<Path> {
         return stringtester;
     }
 
-    public static String readFile(String fileName) throws Exception, IOException {
+    public static String readFile(String fileName) throws Exception {
         BufferedReader br = new BufferedReader(new java.io.FileReader(fileName));
         String st;
         String tmp = "";
@@ -110,7 +73,7 @@ public class MainClass extends SimpleFileVisitor<Path> {
         return tmp;
     }
 
-    public static String[] stringToArray(String s) throws Exception, IOException {
+    public static String[] stringToArray(String s) throws Exception {
         String[] array = s.split("\\s");
         return array;
     }
@@ -153,6 +116,45 @@ public class MainClass extends SimpleFileVisitor<Path> {
         }
         return arrayAttributeName;
     }
+
+    public static void arrayListToString(String filePath) throws Exception{
+        File folder = new File(filePath);
+        File[] listOfFiles = folder.listFiles();
+        ArrayList filesList = new ArrayList();
+        for(File file : listOfFiles)
+        {
+            if(file.isFile())
+            {
+                System.out.println(file.getName() + "\n");
+                for(int i = 0;i < listOfFiles.length;i++)
+                {
+                    ArrayList b = getClassName(readFile(file.getPath()));
+                    Object[] classList = b.toArray();
+                    String[] classString =  Arrays.copyOf(classList,classList.length,String[].class);
+//                    for(int j = 0; j < classString.length; j++){
+//                        System.out.print(classString[j]);
+//                    }
+//                    System.out.print("\n");
+//                    System.out.print("Attributes:" + "\n");
+                    ArrayList c = getAttributeName(readFile(file.getPath()));
+                    Object[] attributeList = c.toArray();
+                    String[] attributeString =  Arrays.copyOf(attributeList,attributeList.length,String[].class);
+//                    for(int j = 0; j < attributeString.length; j++){
+//                        System.out.print(attributeString[j]);
+//                    }
+//                    System.out.print("\n");
+//                    System.out.print("Methods:" + "\n");
+                    ArrayList a = testString(readFile(file.getPath()));
+                    Object[] methodList = a.toArray();
+                    String[] methodString =  Arrays.copyOf(methodList,methodList.length,String[].class);
+//                    for(int j = 0 ; j < methodString.length; j++)
+//                    {
+//                        System.out.print(methodString[j]);
+//                    }
+                    break;
+                }
+            }
+            System.out.println("--------------" + "\n");
+        }
+    }
 }
-
-

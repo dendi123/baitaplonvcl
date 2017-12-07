@@ -31,6 +31,7 @@ class MyCanvas extends JPanel {
         g.fillPolygon(xpoints, ypoints, 3);
     }
 
+    @Override
     public void paintComponent(Graphics g) {
         Graphics2D g1 = (Graphics2D) g;
         x1 = 50;
@@ -59,19 +60,5 @@ class MyCanvas extends JPanel {
             x1 += 350; //khoảng cách giữa các box
         }
         drawArrowLine(g1,300,50+(attributesName.length*25)/2,400,50+(attributesName.length*25)/2,5,5);
-    }
-
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Result");
-        JPanel container = new JPanel();
-        JScrollPane scrPane = new JScrollPane(container);
-        scrPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        scrPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        MyCanvas diagram = new MyCanvas();
-        frame.add(diagram);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setSize(1366, 768);
-        frame.setVisible(true);
-        frame.setLocationRelativeTo(null);
     }
 }

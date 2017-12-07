@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="212b9cf6-6937-4d2b-9308-e5588172ed90" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Scrollpanel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fileInput.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -319,7 +317,7 @@
       <workItem from="1512408236678" duration="3373000" />
       <workItem from="1512474915969" duration="10170000" />
       <workItem from="1512542923395" duration="15908000" />
-      <workItem from="1512618123164" duration="5790000" />
+      <workItem from="1512618123164" duration="5830000" />
     </task>
     <task id="LOCAL-00001" summary="fix getAttributes, remove multiple-line comments">
       <created>1512046201183</created>
@@ -370,11 +368,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512566495931</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add file">
+      <created>1512637465641</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1512637465642</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78322000" />
+    <option name="totallyTimeSpent" value="78362000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -675,16 +680,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -706,6 +701,14 @@
             <element signature="imports" expanded="true" />
             <element signature="method#drawArrowLine#0;class#MyCanvas#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

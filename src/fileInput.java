@@ -8,7 +8,7 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class fileInput  {
-    public static void main(String[] args){
+    public static void main(String[] args) throws Exception{
         JFrame frame = new JFrame("Java Program");
         JPanel panel = new JPanel();
         panel.setLayout(null);
@@ -25,7 +25,7 @@ public class fileInput  {
 
         browse.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e){
                 JFileChooser file = new JFileChooser();
                 JTextField filePath = new JTextField();
                 filePath.setBounds(100,105,400,30);
@@ -34,7 +34,7 @@ public class fileInput  {
                 int path = file.showOpenDialog(null);
                 if(path==JFileChooser.APPROVE_OPTION)
                 {
-                    File f=file.getSelectedFile();
+                    File f = file.getSelectedFile();
                     String filename = f.getAbsolutePath();
                     filePath.setText(filename);
                     filePath.setEditable(true);
@@ -44,7 +44,6 @@ public class fileInput  {
                 {
                     filePath.setText("Cancel choose folder");
                 }
-
 //                path.setText(file.getSelectedFile().getAbsolutePath());
             }
         });
@@ -61,8 +60,8 @@ public class fileInput  {
                 JScrollPane scrPane = new JScrollPane(container);
                 scrPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
                 scrPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-                MyCanvas diagram = new MyCanvas();
-                frame.add(diagram);
+                //MyCanvas diagram = new MyCanvas();
+               // frame.add(diagram);
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 frame.setSize(1366, 768);
                 frame.setVisible(true);

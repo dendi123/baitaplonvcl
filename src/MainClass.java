@@ -11,7 +11,6 @@ public class MainClass extends SimpleFileVisitor<Path> {
         arrayListToString("D:\\baitaplonvcl\\src\\test");
     }
 
-
     public static ArrayList testString(String test) throws Exception
     {
         String[] stringTest = stringToArray(test);

@@ -129,7 +129,6 @@ public class MainClass extends SimpleFileVisitor<Path> {
         {
             if(file.isFile())
             {
-                System.out.println(file.getName() + "\n");
                 for(int i = 0;i < listOfFiles.length;i++)
                 {
                     ArrayList b = getClassName(readFile(file.getPath()));
@@ -141,7 +140,6 @@ public class MainClass extends SimpleFileVisitor<Path> {
                     for(int j = 0; j < classString.length; j++){
                         A.className +=classString[j];
                     }
-
                     //
                     ArrayList c = getAttributeName(readFile(file.getPath()));
                     Object[] attributeList = c.toArray();
@@ -165,7 +163,6 @@ public class MainClass extends SimpleFileVisitor<Path> {
                     break;
                 }
             }
-            System.out.println("--------------" + "\n");
         }
     }
 }

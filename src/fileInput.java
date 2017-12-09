@@ -8,7 +8,7 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class fileInput  {
-    public static void main(String[] args) throws Exception{
+    public void getPathFile() throws Exception{
         JFrame frame = new JFrame("Java Program");
         JPanel panel = new JPanel();
         panel.setLayout(null);

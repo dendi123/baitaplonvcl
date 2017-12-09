@@ -3,10 +3,15 @@ import java.awt.event.*;
 import javax.swing.*;
 
 class Panel extends JPanel {
-    private String className = "<html>Shape <br>";
-    private String attributesName = "<html> - color:String <br>- check:boolean<br>- check:boolean <br>";
-    private String methodsName = "<html>+ Shape()<br>+ Shape(String, boolean) <br>";
+    private String className = "";
+    private String attributesName = "";
+    private String methodsName = "";
     int x, y;
+    int lastMouseX = 0, lastMouseY = 0;
+    int imageX = 30, imageY = 30;
+    double scaleFactor = 1;
+    int panelWidth = 960;
+    int panelHeight = 720;
 
     public Panel( Class A, int x, int y) {
         this.className = A.className;
@@ -34,36 +39,5 @@ class Panel extends JPanel {
         //
     }
 
-//    class MouseMotionHandler extends MouseMotionAdapter implements MouseListener, MouseWheelListener {
-//        public void mousePressed(MouseEvent e) {
-//            int lastMouseX = e.getX();
-//            int lastMouseY = e.getY();
-//        }
-//
-//        public void mouseWheelMoved(MouseWheelEvent e) {
-//            int notches = e.getWheelRotation();
-//            scaleFactor = scaleFactor + notches / 10.0;
-//            if (scaleFactor < 0.5) {
-//                // scaleFactor = 0.5;
-//            } else if (scaleFactor > 3.0) {
-//                scaleFactor = 3.0;
-//            }
-//            panelWidth*=scaleFactor;
-//            panelHeight*=scaleFactor;
-//            repaint();
-//        }
-//
-//        public void mouseReleased(MouseEvent e) {
-//        }
-//
-//        public void mouseEntered(MouseEvent e) {
-//        }
-//
-//        public void mouseExited(MouseEvent e) {
-//        }
-//
-//        public void mouseClicked(MouseEvent e) {
-//        }
-//    }
 }
 

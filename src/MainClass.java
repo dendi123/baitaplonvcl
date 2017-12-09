@@ -5,10 +5,11 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.util.Arrays;
+import java.util.regex.Matcher;
 
 public class MainClass extends SimpleFileVisitor<Path> {
     public ArrayList< Class> list = new ArrayList<>();
-    public MainClass( String path) {
+    public MainClass(String path) {
         try {
             arrayListToString( path);
         } catch (Exception e) {
@@ -22,9 +23,9 @@ public class MainClass extends SimpleFileVisitor<Path> {
         ArrayList stringtester = new ArrayList();
         for(int i=0;i<stringTest.length;i++)
         {
-            if(stringTest[i].contains("public")
-                    || stringTest[i].contains("private")
-                    || stringTest[i].contains("protected"))
+            if(stringTest[i].contains("+")
+                    || stringTest[i].contains("-")
+                    || stringTest[i].contains("#"))
             {
                 if(stringTest[i+1].contains("double")
                         || stringTest[i+1].contains("int")
@@ -69,6 +70,11 @@ public class MainClass extends SimpleFileVisitor<Path> {
             st = st.replaceAll("//(.*)", " ");
             st = st.replaceAll("/\\*(.|[\\r\\n])*\\*/"," ");
             st = st.replaceAll(",+"," , ");
+
+            st=st.replaceAll("public" , Matcher.quoteReplacement(" + "));
+            st=st.replaceAll("private" , Matcher.quoteReplacement(" - "));
+            st=st.replaceAll("protected" , Matcher.quoteReplacement(" # "));
+            st=st.replaceAll(";+","");
 //            st = st.replaceAll("\\)\\s?\\{","{");
             st = st.replaceAll("\\s+", " ");
             tmp += st;
@@ -87,11 +93,12 @@ public class MainClass extends SimpleFileVisitor<Path> {
         ArrayList arrayClassName = new ArrayList();
         for (int i = 0; i < className.length; i++) {
             if (className[i].contains("class")) {
-                if (className[i + 2].contains("extends")) {
-                    arrayClassName.add("Class: " + className[i + 1] + " extends: " + className[i + 3] );
-                } else {
-                    arrayClassName.add("Class: " + className[i + 1] );
-                }
+                arrayClassName.add("Class: " + className[i + 1] );
+//                if (className[i + 2].contains("extends")) {
+//                    arrayClassName.add("Class: " + className[i + 1] + " extends: " + className[i + 3] );
+//                } else {
+//                    arrayClassName.add("Class: " + className[i + 1] );
+//                }
             }
         }
         return arrayClassName;
@@ -101,18 +108,18 @@ public class MainClass extends SimpleFileVisitor<Path> {
         String[] attributeName = stringToArray(s);
         ArrayList arrayAttributeName = new ArrayList();
         for (int i = 0; i < attributeName.length; i++) {
-            if ((attributeName[i].contains("public") || attributeName[i].contains("private") || attributeName[i].contains("protected")) && !attributeName[i + 1].contains("class")) {
+            if ((attributeName[i].contains("+") || attributeName[i].contains("-") || attributeName[i].contains("#")) && !attributeName[i + 1].contains("class")) {
                 if ((attributeName[i + 1].contains("final") || attributeName[i + 1].contains("static")) && !attributeName[i + 1].contains("(")) {
                     if(attributeName[i + 2].contains("double") || attributeName[i + 2].contains("int") || attributeName[i + 2].contains("String") || attributeName[i + 2].contains("float") || attributeName[i + 2].contains("boolean")){
                         if (!attributeName[i + 3].contains("(")) {
-                            arrayAttributeName.add( attributeName[i + 3] + "<br>");
+                            arrayAttributeName.add( attributeName[i + 3] + ": " + attributeName[i+2] + "<br>");
                         }
                     }
                 }
                 else {
                     if((attributeName[i + 1].contains("double") || attributeName[i + 1].contains("int") || attributeName[i + 1].contains("String") || attributeName[i + 1].contains("float") || attributeName[i + 1].contains("boolean")) && !attributeName[i + 1].contains("(")){
                         if (!attributeName[i + 2].contains("{") && !attributeName[i + 2].contains("(")) {
-                            arrayAttributeName.add( attributeName[i + 2] + "<br>");
+                            arrayAttributeName.add( attributeName[i + 2] + ": " + attributeName[i+1] + "<br>");
                         }
                     }
                 }

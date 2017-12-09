@@ -3,10 +3,14 @@ import java.awt.*;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
-public class main {
+
+
+
+public class main{
     static MainClass mainClass;
 
     public static void main(String[] args) throws Exception{
+        fileInput test = new fileInput();
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -15,7 +19,9 @@ public class main {
                 } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
                 }
 
-                mainClass = new MainClass( "D:\\baitaplonvcl\\src\\test");
+//                mainClass = new MainClass( "C:\\Users\\Mangosteen\\Documents\\GitHub\\baitaplonvcl\\src\\test");
+                mainClass = new MainClass(test.getFilePathFolder());
+                System.out.println(test.getFilePathFolder());
                 JFrame frame = new JFrame("Result");
                 JPanel mainPanel = new JPanel();
                 int k =1;

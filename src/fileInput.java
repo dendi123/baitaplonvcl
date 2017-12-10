@@ -1,16 +1,17 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-//day la ban cu chua day filePath sang. Con cai ban nay d ra clg la ban moi huy vua sua va d chay dc ^^
 public class fileInput  {
-    public static void main(String[] args) throws Exception{
+    public static String filename;
+    //    public static String filePathForFolder;
+    public static void main(String[] args) throws Exception,IOException{
         JFrame frame = new JFrame("Java Program");
         JPanel panel = new JPanel();
         panel.setLayout(null);
@@ -25,21 +26,26 @@ public class fileInput  {
         JButton browse = new JButton("Browse..");
         browse.setBounds(510,105,90,28);
 
+        JTextField filePath = new JTextField();
+        filePath.setEditable(false);
+        filePath.setBounds(100,105,400,30);
+
         browse.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
                 JFileChooser file = new JFileChooser();
-                JTextField filePath = new JTextField();
-                filePath.setBounds(100,105,400,30);
 
                 file.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
                 int path = file.showOpenDialog(null);
                 if(path==JFileChooser.APPROVE_OPTION)
                 {
                     File f = file.getSelectedFile();
-                    String filename = f.getAbsolutePath();
+                    filename = f.getAbsolutePath();
                     filePath.setText(filename);
                     filePath.setEditable(true);
+//                    filePathForFolder = filePath.getText();
+//                    test.setPath(filePathForFolder);
+//                    System.out.println(test.getPath());
                     panel.add(filePath);
                 }
                 else if(path==JFileChooser.CANCEL_OPTION)
@@ -48,8 +54,9 @@ public class fileInput  {
                 }
 //                path.setText(file.getSelectedFile().getAbsolutePath());
             }
-        });
 
+        });
+//        System.out.println(filePathForFolder);
         JButton analyze = new JButton("Analyze");
         analyze.setFont(new Font("Courier New",Font.BOLD,17));
         analyze.setBounds(250,190,120,50);
@@ -57,13 +64,10 @@ public class fileInput  {
         analyze.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               new main();
+                new main();
+                frame.dispose();
             }
         });
-
-        JTextField filePath = new JTextField();
-        filePath.setEditable(false);
-        filePath.setBounds(100,105,400,30);
 
         panel.add(titleTop);
         panel.add(path);

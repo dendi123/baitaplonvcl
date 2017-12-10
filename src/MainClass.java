@@ -32,30 +32,30 @@ public class MainClass extends SimpleFileVisitor<Path> {
                         || stringTest[i+1].contains("String")
                         || stringTest[i+1].contains("void"))
                 {
-                   if(stringTest[i+2].contains("("))
-                   {
-                       if(stringTest[i+3].contains(")"))
-                       {
-                           stringtester.add(stringTest[i] + " " + stringTest[i+1] + " " +  stringTest[i+2] + " "+stringTest[i+3] + "<br>");
-                       }
-                       else
-                       {
-                          if(!stringTest[i+4].contains(","))
-                          {
-                              stringtester.add(stringTest[i] + " " + stringTest[i+1] + " " +  stringTest[i+2] + "<br>");
-                          }
-                          else
-                          {
-                              while (!stringTest[i].contains("{"))
-                              {
-                                  stringtester.add(stringTest[i]+ " ");
-                                  i++;
-                              }
-                              stringtester.add("<br>");
-                          }
+                    if(stringTest[i+2].contains("("))
+                    {
+                        if(stringTest[i+3].contains(")"))
+                        {
+                            stringtester.add(stringTest[i] + " " + stringTest[i+1] + " " +  stringTest[i+2] + " "+stringTest[i+3] + "<br>");
+                        }
+                        else
+                        {
+                            if(!stringTest[i+4].contains(","))
+                            {
+                                stringtester.add(stringTest[i] + " " + stringTest[i+1] + " " +  stringTest[i+2] + "<br>");
+                            }
+                            else
+                            {
+                                while (!stringTest[i].contains("{"))
+                                {
+                                    stringtester.add(stringTest[i]+ " ");
+                                    i++;
+                                }
+                                stringtester.add("<br>");
+                            }
 
-                       }
-                   }
+                        }
+                    }
                 }
             }
         }
@@ -112,14 +112,14 @@ public class MainClass extends SimpleFileVisitor<Path> {
                 if ((attributeName[i + 1].contains("final") || attributeName[i + 1].contains("static")) && !attributeName[i + 1].contains("(")) {
                     if(attributeName[i + 2].contains("double") || attributeName[i + 2].contains("int") || attributeName[i + 2].contains("String") || attributeName[i + 2].contains("float") || attributeName[i + 2].contains("boolean")){
                         if (!attributeName[i + 3].contains("(")) {
-                            arrayAttributeName.add( attributeName[i + 3] + ": " + attributeName[i+2] + "<br>");
+                            arrayAttributeName.add( attributeName[i] + " " + attributeName[i + 3] + ": " + attributeName[i+2] + "<br>");
                         }
                     }
                 }
                 else {
                     if((attributeName[i + 1].contains("double") || attributeName[i + 1].contains("int") || attributeName[i + 1].contains("String") || attributeName[i + 1].contains("float") || attributeName[i + 1].contains("boolean")) && !attributeName[i + 1].contains("(")){
                         if (!attributeName[i + 2].contains("{") && !attributeName[i + 2].contains("(")) {
-                            arrayAttributeName.add( attributeName[i + 2] + ": " + attributeName[i+1] + "<br>");
+                            arrayAttributeName.add(attributeName[i] + " " + attributeName[i + 2] + ": " + attributeName[i+1] + "<br>");
                         }
                     }
                 }

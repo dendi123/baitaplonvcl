@@ -35,21 +35,21 @@ class Panel extends JPanel {
         //
     }
 }
-// cai mainparl nay co lam gì tren day đâu JFRAMe nó hiện cái Panel ma> Uh thi minh zoom cai panel ma. co cai scale cua anh kia con gi, nhung cai bang
-// cai diagram đâu vẽ trên panel này. Co ma?
-// nhận rồi nhưng hình như nó đ thay đổi
+
 class MainPanel extends JPanel {
     int lastMouseX = 0, lastMouseY = 0;
     double scaleFactor = 1;
     int panelWidth = 960;
     int panelHeight = 720;
-    private double scale = 1.5;
+    int imageX = 30, imageY = 30;
+
     MainPanel(){
         MouseMotionHandler mouseHandler = new MouseMotionHandler();
         addMouseMotionListener(mouseHandler);
         addMouseListener(mouseHandler);
         addMouseWheelListener(mouseHandler);
     }
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -57,9 +57,6 @@ class MainPanel extends JPanel {
         AffineTransform at = new AffineTransform();
         at.scale(scaleFactor, scaleFactor);
         g2.transform(at);
-
-        //ngon roofi
-        //=))). ok, còn gì nữa ko. Cofn cai file input luc chay file main y
     }
     class MouseMotionHandler extends MouseMotionAdapter implements
             MouseListener, MouseWheelListener {
@@ -67,8 +64,8 @@ class MainPanel extends JPanel {
         public void mousePressed(MouseEvent e) {
             lastMouseX = e.getX();
             lastMouseY = e.getY();
-//            System.out.println("FSDFSDF");
         }
+
 //        public void mouseDragged(MouseEvent e) {
 //            Rectangle rec = new Rectangle(imageX,imageY,300,300);
 //
@@ -91,13 +88,12 @@ class MainPanel extends JPanel {
             scaleFactor = scaleFactor + notches / 10.0;
             if (scaleFactor < 0.5) {
                 //scaleFactor = 0.5;
-            } else if (scaleFactor > 3.0) {
+            }
+            else if (scaleFactor > 3.0) {
                 scaleFactor = 3.0;
             }
             panelWidth*=scaleFactor;
             panelHeight*=scaleFactor;
-            System.out.println("FSDFSDF");
-            //this.setPreferredSize(panelWidth,panelHeight);
             repaint();
         }
 

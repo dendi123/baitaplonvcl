@@ -1,3 +1,4 @@
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,9 +8,9 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+//day la ban cu chua day filePath sang. Con cai ban nay d ra clg la ban moi huy vua sua va d chay dc ^^
 public class fileInput  {
-    public String filePathFolder;
-    public void getPathFile() throws Exception{
+    public static void main(String[] args) throws Exception{
         JFrame frame = new JFrame("Java Program");
         JPanel panel = new JPanel();
         panel.setLayout(null);
@@ -24,15 +25,13 @@ public class fileInput  {
         JButton browse = new JButton("Browse..");
         browse.setBounds(510,105,90,28);
 
-        JTextField filePath = new JTextField();
-        filePath.setBounds(100,105,400,30);
         browse.addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent e){
                 JFileChooser file = new JFileChooser();
-//                JTextField filePath = new JTextField();
-//                filePath.setBounds(100,105,400,30);
+                JTextField filePath = new JTextField();
+                filePath.setBounds(100,105,400,30);
+
                 file.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
                 int path = file.showOpenDialog(null);
                 if(path==JFileChooser.APPROVE_OPTION)
@@ -41,20 +40,15 @@ public class fileInput  {
                     String filename = f.getAbsolutePath();
                     filePath.setText(filename);
                     filePath.setEditable(true);
-
-
+                    panel.add(filePath);
                 }
                 else if(path==JFileChooser.CANCEL_OPTION)
                 {
                     filePath.setText("Cancel choose folder");
                 }
 //                path.setText(file.getSelectedFile().getAbsolutePath());
-
             }
-
         });
-
-        String filePathFolder = filePath.getText();
 
         JButton analyze = new JButton("Analyze");
         analyze.setFont(new Font("Courier New",Font.BOLD,17));
@@ -63,21 +57,11 @@ public class fileInput  {
         analyze.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame("Result");
-                JPanel container = new JPanel();
-                JScrollPane scrPane = new JScrollPane(container);
-                scrPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-                scrPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-                //MyCanvas diagram = new MyCanvas();
-               // frame.add(diagram);
-                frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                frame.setSize(1366, 768);
-                frame.setVisible(true);
-                frame.setLocationRelativeTo(null);
+               new main();
             }
         });
 
-        JTextField filePathDemo = new JTextField();
+        JTextField filePath = new JTextField();
         filePath.setEditable(false);
         filePath.setBounds(100,105,400,30);
 
@@ -85,22 +69,11 @@ public class fileInput  {
         panel.add(path);
         panel.add(browse);
         panel.add(analyze);
-        panel.add(filePathDemo);
         panel.add(filePath);
         frame.add(panel);
         frame.setSize(640,320);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
     }
-
-
-        public String getFilePathFolder() {
-            return filePathFolder;
-        }
-
-        public void setFilePathFolder(String filePathFolder) {
-            this.filePathFolder = filePathFolder;
-        }
 }

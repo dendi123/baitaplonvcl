@@ -9,6 +9,9 @@ import java.util.regex.Matcher;
 
 public class MainClass extends SimpleFileVisitor<Path> {
     public ArrayList< Class> list = new ArrayList<>();
+    public MainClass(){
+
+    }
     public MainClass(String path) {
         try {
             arrayListToString( path);
@@ -93,7 +96,7 @@ public class MainClass extends SimpleFileVisitor<Path> {
         ArrayList arrayClassName = new ArrayList();
         for (int i = 0; i < className.length; i++) {
             if (className[i].contains("class")) {
-                arrayClassName.add("Class: " + className[i + 1] );
+                arrayClassName.add(" Class: " + className[i + 1] );
 //                if (className[i + 2].contains("extends")) {
 //                    arrayClassName.add("Class: " + className[i + 1] + " extends: " + className[i + 3] );
 //                } else {
@@ -112,7 +115,7 @@ public class MainClass extends SimpleFileVisitor<Path> {
                 if ((attributeName[i + 1].contains("final") || attributeName[i + 1].contains("static")) && !attributeName[i + 1].contains("(")) {
                     if(attributeName[i + 2].contains("double") || attributeName[i + 2].contains("int") || attributeName[i + 2].contains("String") || attributeName[i + 2].contains("float") || attributeName[i + 2].contains("boolean")){
                         if (!attributeName[i + 3].contains("(")) {
-                            arrayAttributeName.add( attributeName[i] + " " + attributeName[i + 3] + ": " + attributeName[i+2] + "<br>");
+                            arrayAttributeName.add(attributeName[i] + " " + attributeName[i + 3] + ": " + attributeName[i+2] + "<br>");
                         }
                     }
                 }

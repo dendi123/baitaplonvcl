@@ -1,13 +1,18 @@
-/**
- * Created by VAIO on 27-Oct-17.
- */
-//public class Check {
-//    public static void main(String[] args) {
+//import com.sun.tools.javac.util.JDK9Wrappers;
+//import javafx.scene.shape.Circle;
+//
+//import java.awt.*;
+//
+/////**
+//// * Created by VAIO on 27-Oct-17.
+//// */
+//class Check {
+//    public static void Check() {
 //        Rectangle rectangle = new Rectangle();
 //        Triangle triangle = new Triangle();
 //        Circle circle = new Circle();
 //        Square square = new Square();
-//        Layer layer = new Layer();
+//        JDK9Wrappers.Layer layer = new JDK9Wrappers.Layer();
 //        Diagram diagram = new Diagram();
 //
 //        layer.addShape(rectangle);

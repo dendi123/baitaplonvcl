@@ -25,9 +25,8 @@ public class fileInput  {
 
         JButton browse = new JButton("Browse..");
         browse.setBounds(510,105,90,28);
-
         JTextField filePath = new JTextField();
-        filePath.setEditable(false);
+        filePath.setEditable(true);
         filePath.setBounds(100,105,400,30);
 
         browse.addActionListener(new ActionListener() {
@@ -42,7 +41,6 @@ public class fileInput  {
                     File f = file.getSelectedFile();
                     filename = f.getAbsolutePath();
                     filePath.setText(filename);
-                    filePath.setEditable(true);
 //                    filePathForFolder = filePath.getText();
 //                    test.setPath(filePathForFolder);
 //                    System.out.println(test.getPath());
